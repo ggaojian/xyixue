@@ -1,0 +1,180 @@
+{% extends "layouts/base.html" %}
+{% load book_extras %}
+{% block title %} Management {% endblock %} 
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="page-header">
+            <div class="page-block">
+                <!-- Title -->
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">任务点</h5>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <!-- [ breadcrumb ] end -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+                    <!-- [ basic-table ] start -->
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Total 147 Jobs</h5>
+                            </div>
+                            
+                            {% show_messages %}
+
+                            <div class="card-block ">
+                                <div class='row'>
+                                    <!-- Sort by -->
+                                    <div class="col-6">
+                                        <b>Sort By : - </b>
+                                        <!-- <a href="{% url 'category_list' %}?search={{search}}&orderby=id">Id</a>  | 
+                                        <a href="{% url 'category_list' %}?search={{ search }}&orderby=name">Name</a> |  
+                                        <a href="{% url 'category_list' %}?search={{ search }}&orderby=created_at">Created</a>  -->
+                                    
+                                        <a href="#">Id</a>  | 
+                                        <a href="#">Job_id</a> |  
+                                        <a href="#">Courseid</a>
+                                    
+                                    </div>
+                                     <!-- Search box -->
+                                    <div class="col-6">
+                                        <form class="form-inline mb-2">
+                                            <div class="form-group mx-sm-3 mb-2">
+                                                <input type="text" 
+                                                       class="form-control" 
+                                                       name="search",
+                                                       id='search',
+                                                       placeholder="Search job",
+                                                       value={{search}}
+                                                       >
+                                            </div>
+                                            <button type="submit" class="btn btn-secondary mb-2 btn-sm">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                
+                                <div class="table-responsive table-hover">
+                                    <!-- Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>任务名</th>
+                                                <th>课程编号</th>
+                                                <th>老师编号</th>
+                                                <th>任务编号</th>
+                                                <th>任务类型</th>
+                                                <th>创建时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <!-- {% for cat in categories %}
+                                            <tr>
+                                                <th scope="row">{{cat.id}}</th>
+                                                <td>{{cat.name}}</td>
+                                                <td>{{ cat.created_at|date:"Y-m-d H:i" }}  </td>
+                                                <td><a href="{% url 'category_delete' cat.pk %}" class="badge badge-danger"><i class="feather icon-trash-2"></i>&nbsp;Delete</a></td>
+
+                                            </tr>
+                                            {% endfor %} -->
+                                            <tr>
+                                                
+                                                <td>1118181950</td>
+                                                <td>测验</td>
+                                                <td>224841013</td>
+                                                <td>112509040</td>
+                                                <td>work-a212cbd3930a498cb10dc7a68edf20b1</td>
+                                                <td>WorkAttachment</td>
+                                                <td>2022/5/29</td>
+                                            </tr>
+
+                                            <tr>
+                                                
+                                                <td>1093261786</td>
+                                                <td>2022-04-26.mp4</td>
+                                                <td>222820410</td>
+                                                <td>147374889</td>
+                                                <td>1651109619236640</td>
+                                                <td>VideoAttachment</td>
+                                                <td>2022/4/28</td>
+                                            </tr>
+
+                                            <tr>
+                                                
+                                                <td>1082300318</td>
+                                                <td>第十章小测验</td>
+                                                <td>222602451</td>
+                                                <td>112709080</td>
+                                                <td>work-ac0aa4bb19964d2d8a5d78fe116aeda3</td>
+                                                <td>WorkAttachment</td>
+                                                <td>2022/4/17</td>
+                                            </tr>
+
+                                            <tr>
+                                                
+                                                <td>1077288032</td>
+                                                <td>第九章小测验</td>
+                                                <td>222602451</td>
+                                                <td>112709080</td>
+                                                <td>work-15641441db7348caac8ed7805098dab1</td>
+                                                <td>WorkAttachment</td>
+                                                <td>2022/4/13</td>
+                                            </tr>
+
+                                            <tr>
+                                                
+                                                <td>1075094558</td>
+                                                <td>sp10-2部分.mp4</td>
+                                                <td>222602451</td>
+                                                <td>112709080</td>
+                                                <td>1649689487407530</td>
+                                                <td>VideoAttachment</td>
+                                                <td>2022/4/11</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <!-- Add button -->
+                                    <!-- <div class='col-6'>
+                                        <a href="{% url 'category_create' %}" class='btn btn-primary'>Add Category</a>
+                                    </div> -->
+                                    <!-- Paginations -->
+                                    <div class='col-6'>
+                                        {% show_pagination %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- [ Main Content ] end -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

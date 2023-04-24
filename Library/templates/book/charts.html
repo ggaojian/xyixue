@@ -1,0 +1,1958 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Charts Morris {% endblock %}
+{% load static %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+<link rel="stylesheet" href="/static/assets/plugins/chart-morris/css/morris.css">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <!-- <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Morris Chart</h5>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="main-body">
+
+            <!-- #分栏实现 -->
+            <ul id="myTab" class="nav nav-pills nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link " href="#student" data-toggle="tab" style="font-size: large;">学生</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#course" data-toggle="tab" style="font-size: large;">课程概况</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#teacher" data-toggle="tab" style="font-size: large;">课程细节</a>
+                </li> -->
+            </ul>
+
+
+            <!-- #测试 -->
+            <div id="myTabContent" class="tab-content" style="padding: 0; margin: 0;">
+
+                <div class="tab-pane fade in active" id="student">
+
+                    <form style="margin-left: 450px;" id="fstu">
+                        <div class="row">
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="请输入学号" id="student_id" required>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="请输入课程号" id="course_id" required>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary" id="searchstu">搜索</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <div class="row">
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>个人自画像</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="polar" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>学生考试分数统计</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="exam-score" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>学生任务点分数统计</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="work-score" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>学生成绩预测</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="predict-score" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                </div>
+                <div class="tab-pane fade" id="course">
+                    <div class="row">
+
+
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>课程人数统计</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="class_count" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>任务点时间分布</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="monthly-member" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>在线时长统计</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="book-count" style="height:400px"></div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>课程测试统计</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="top-borrow" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>活动参与人数</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="attend" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>各课程活动参与人数</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="course_attend" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="teacher">
+                    <div class="row">
+
+
+
+
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>课程通过/未通过人数统计</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="qualified" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>课程分数统计</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="score" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <pre id="tsv" style="display:none">Browser Version	Total Market Share
+                            1852223(0, 59]	6.67%
+                            1852223(59, 69]	15.00%
+                            1852223(69, 79]	0.00%
+                            1852223(79, 89]	36.67%
+                            1852223(89, 100]	41.67%
+                            1853952(0, 59]	5.56%
+                            1853952(59, 69]	8.33%
+                            1853952(69, 79]	0.00%
+                            1853952(79, 89]	41.67%
+                            1853952(89, 100]	44.44%
+                            1874954(0, 59]	6.90%
+                            1874954(59, 69]	12.07%
+                            1874954(69, 79]	0.00%
+                            1874954(79, 89]	43.97%
+                            1874954(89, 100]	37.07%
+                            1877281(0, 59]	1.94%
+                            1877281(59, 69]	15.53%
+                            1877281(69, 79]	0.00%
+                            1877281(79, 89]	24.27%
+                            1877281(89, 100]	58.25%
+                            1899424(0, 59]	5.88%
+                            1899424(59, 69]	23.53%
+                            1899424(69, 79]	0.00%
+                            1899424(79, 89]	44.12%
+                            1899424(89, 100]	26.47%
+                            1925232(0, 59]	4.85%
+                            1925232(59, 69]	11.65%
+                            1925232(69, 79]	0.00%
+                            1925232(79, 89]	38.83%
+                            1925232(89, 100]	44.66%
+                            1937112(0, 59]	11.61%
+                            1937112(59, 69]	26.79%
+                            1937112(69, 79]	0.00%
+                            1937112(79, 89]	35.71%
+                            1937112(89, 100]	25.89%
+                            1957578(0, 59]	13.51%
+                            1957578(59, 69]	37.84%
+                            1957578(69, 79]	0.00%
+                            1957578(79, 89]	21.62%
+                            1957578(89, 100]	27.03%
+                            1976006(0, 59]	9.00%
+                            1976006(59, 69]	10.00%
+                            1976006(69, 79]	0.00%
+                            1976006(79, 89]	39.00%
+                            1976006(89, 100]	42.00%
+                            1991709(0, 59]	26.72%
+                            1991709(59, 69]	31.03%
+                            1991709(69, 79]	0.00%
+                            1991709(79, 89]	30.17%
+                            1991709(89, 100]	12.07%
+                            2014762(0, 59]	25.49%
+                            2014762(59, 69]	28.43%
+                            2014762(69, 79]	0.00%
+                            2014762(79, 89]	31.37%
+                            2014762(89, 100]	14.71%
+                            2016416(0, 59]	24.00%
+                            2016416(59, 69]	52.00%
+                            2016416(69, 79]	0.00%
+                            2016416(79, 89]	16.00%
+                            2016416(89, 100]	8.00%
+                            2118209(0, 59]	24.27%
+                            2118209(59, 69]	38.83%
+                            2118209(69, 79]	0.00%
+                            2118209(79, 89]	0.00%
+                            2118209(89, 100]	36.89%
+                            2135470(0, 59]	23.71%
+                            2135470(59, 69]	50.52%
+                            2135470(69, 79]	0.00%
+                            2135470(79, 89]	0.00%
+                            2135470(89, 100]	25.77%
+                            2142656(0, 59]	31.43%
+                            2142656(59, 69]	45.71%
+                            2142656(69, 79]	0.00%
+                            2142656(79, 89]	0.00%
+                            2142656(89, 100]	22.86%
+                            2282716(0, 59]	16.81%
+                            2282716(59, 69]	23.89%
+                            2282716(69, 79]	0.00%
+                            2282716(79, 89]	33.63%
+                            2282716(89, 100]	25.66%
+                            2293149(0, 59]	10.00%
+                            2293149(59, 69]	17.00%
+                            2293149(69, 79]	0.00%
+                            2293149(79, 89]	40.00%
+                            2293149(89, 100]	33.00%
+                            2353018(0, 59]	39.39%
+                            2353018(59, 69]	21.21%
+                            2353018(69, 79]	0.00%
+                            2353018(79, 89]	30.30%
+                            2353018(89, 100]	9.09%
+                            </pre>
+
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>成绩统计</h5>
+                                </div>
+                                <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                        <div id="record-status" style="height:400px"></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script type="text/javascript" src="{% static 'js/highcharts.src.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/highcharts-more.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/modules/solid-gauge.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/highstock.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/modules/exporting.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/modules/export-data.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/modules/accessibility.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/modules/cylinder.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/highcharts-3d.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/modules/data.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/modules/drilldown.js' %}"> </script>
+<!-- <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"> </script> -->
+<!-- <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"> </script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/export-data.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/cylinder.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script type="text/javascript" src="https://code.hcharts.cn/highcharts/highcharts-more.js"></script>
+<script type="text/javascript" src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://code.hcharts.cn/highcharts/modules/data.js"></script>
+<script type="text/javascript" src="https://code.hcharts.cn/highcharts/modules/drilldown.js"></script>
+<script type="text/javascript" src="https://code.hcharts.cn/plugins/zh_cn.js"></script>
+<script type="text/javascript" src="https://code.hcharts.cn/highcharts/modules/exporting.js"></script>
+<script type="text/javascript" src="https://code.hcharts.cn/highcharts/modules/solid-gauge.js"></script> -->
+
+
+<script type="text/javascript">
+
+    const stub = document.querySelector('#searchstu')
+    const stuid = document.querySelector('#student_id')
+    const couid = document.querySelector('#course_id')
+    stub.addEventListener('click', function () {
+        console.log(stuid.value, couid.value)
+    })
+
+    $(function () {
+        $('#myTab li:eq(0) a').tab('show');
+    });
+
+    var chart_top_stock_book = new Highcharts.Chart({
+        credits: {
+            enabled: false
+        },
+        chart: {
+            renderTo: 'book-count',
+            type: 'column',
+            options3d: {
+                enabled: true,
+                alpha: 5,
+                beta: 15,
+                depth: 50,
+            }
+        },
+        title: {
+            text: '时长统计'
+        },
+        xAxis: {
+            categories: ['<1000s', '<20000s', '<50000s', '<100000s', '>100000']
+        },
+        yAxis: { title: { text: '学生人数' } },
+        series: [{
+            type: 'column',
+            name: '数量',
+            data: [5398, 5596, 10082, 4022, 8729],
+        }]
+    });
+
+    new Highcharts.Chart({
+        credits: {
+            enabled: false
+        },
+        chart: {
+            renderTo: 'top-borrow',
+            type: 'column',
+        },
+        title: {
+            text: '测试/考试次数统计'
+        },
+        xAxis: {
+            categories: ['224894458数学', '222675513水利', '222652756微积分', '222820410数据库原理'],
+
+        },
+        yAxis: { title: { text: '数量' } },
+        series: [{
+            type: 'column',
+            name: '数量',
+            data: [191, 17, 9, 9],
+            color: "#47CC8A",
+        }]
+    });
+
+
+
+
+    new Highcharts.chart('monthly-member', {
+        credits: {
+            enabled: false
+        },
+
+        title: {
+            text: '任务点时间分布'
+        },
+
+        subtitle: {
+            text: '月份'
+        },
+
+        yAxis: {
+            title: {
+                text: '次数'
+            }
+        },
+
+        xAxis: {
+            categories: ['2022/2', '2022/3', '2022/4', '2022/5']
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            }
+        },
+
+        series: [{
+            name: '任务点',
+            data: [93, 39, 14, 1]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+
+    new Highcharts.chart('polar', {
+        chart: {
+            polar: true
+        },
+        credits: {
+            enabled: false
+        },
+        title: {
+            text: '学生个人自画像',
+            labels: {
+                style: {
+                    color: 'black',
+                    fontSize: '50px'
+                }
+            }
+        },
+        subtitle: {
+            text: '课程名称:数据结构<br>学生姓名:李希元'
+        },
+        pane: {
+            startAngle: 0,
+            endAngle: 360
+        },
+        xAxis: {
+            categories: ['课堂活跃度', '学习意愿', '任务完成度', '课程任务', '考试情况', '课程表现'],
+            labels: {
+                style: {
+                    color: 'black',
+                    fontSize: '15px'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            max: 10
+        },
+        series: [{
+            type: 'area',
+            name: '面积',
+            data: [2.781, 1.565, 5.438, 9.989, 5.99, 5.165
+            ]
+        }]
+    });
+
+
+
+
+    var chart = Highcharts.chart('class_count', {
+        chart: {
+            type: 'column'
+        },
+        credits: {
+            enabled: false
+        },
+        title: {
+            text: '课程选修人数统计图'
+        },
+        subtitle: {
+            text: `课程名<br> `
+        },
+        xAxis: {
+            min: 0, // 滚动条可视区域开始位置
+            max: 20,// 滚动条可视区域结束位置
+            type: 'category',
+            distance: 1,
+            labels: {
+                rotation: -55, // 设置轴标签旋转角度
+                setInterval: 0
+            },
+            label: {
+                style: {
+                    fontSize: '3px'
+                }
+
+            },
+            scrollbar: { // 滚动条样式
+                enabled: true,
+                height: 8,
+                barBackgroundColor: '#d1d1d1',
+                barBorderColor: '#d1d1d1',
+                rifleColor: '#d1d1d1',
+                barBorderRadius: 5,
+                buttonBorderWidth: 0,
+                buttonArrowColor: 'rgba(0,0,0,0)'
+            },
+            tickLengh: 0
+
+
+        },
+
+
+
+        yAxis: {
+            max: 160,
+            min: 0,
+
+            title: {
+                text: '人数 (个)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: '学生人数: <b>{point.y} 个</b> '
+        },
+        series: [{
+            name: '总人数',
+            data: [['重修', 65],
+            ['重考', 0],
+            ['岩溶水文地质学-0001', 56],
+            ['液压传动-0001', 47],
+            ['高等数学B2-0018', 145],
+            ['高等数学B2-0019', 127],
+            ['水力学-0003', 31],
+            ['水力学-0003A', 31],
+            ['水力学2022', 29],
+            ['智能传感与检测技术-0001', 120],
+            ['数据结构-0001', 84],
+            ['数据结构-0001A', 37],
+            ['数据结构-0001B', 46],
+            ['智能制造大数据技术-0002', 80],
+            ['数据库原理B(2022上)', 96],
+            ['数据库原理B-0003A', 98],
+            ['地质信息技术导论1班', 41],
+            ['现代软件工程-0001', 103],
+            ['现代软件工程-0001A', 103],
+            ['财务管理-0003', 81],
+            ['财务管理-0002', 80],
+            ['海洋数值模拟-0001', 23],
+            ['统计学与数据分析', 12],
+            ['农业气象-0001', 27],
+            ['海底矿产资源-0001B', 19],
+            ['海底矿产资源-0001A', 19],
+            ['海底矿产资源-0001', 19],
+            ['数学实验-0001', 103],
+            ['数学实验-0001A', 103],
+            ['数学实验-0002', 79],
+            ['数学实验-0002A', 79],
+            ['离散数学-0002', 119],
+            ['产业经济学-0002', 66],
+            ['金属工艺学-0002', 53],
+            ['旅游学概论-0001', 27]
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y}', // :.1f 为保留 1 位小数
+                y: 10
+            }
+        }]
+    });
+
+    var chart = Highcharts.chart('qualified', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '课程通过人数统计图'
+        },
+        credits: {
+            enabled: false
+        },
+        subtitle: {
+            text: 'courseid:222652756'
+        },
+        xAxis: {
+            title: {
+                text: '任务点'
+            },
+            labels: {
+                style: {
+                    fontSize: '15px'
+                }
+            },
+            categories: ['任务点1', '任务点2', '任务点3', '任务点4', '任务点5', '任务点6']
+        },
+        yAxis: {
+            allowDecimals: false,
+            min: 0,
+            title: {
+                text: '人数（个）'
+            },
+            stackLabels: {  // 堆叠数据标签
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    // color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                total = this.point.stackTotal
+                pass = this.y
+                a = 100 * pass / total
+                return '<b>workid:' + this.x + '</b><br/>' +
+                    this.series.name + ': ' + this.y + '<br/>' +
+                    '总量: ' + this.point.stackTotal + '<br>' + '通过率：' + `${Math.round(a)}` + '%';
+            }
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+            name: '未通过',
+            data: [57, 52, 87, 145, 73, 107],
+            stack: 'A',
+            color: 'red'
+        }, {
+            name: '通过',
+            data: [210, 204, 168, 102, 176, 153],
+            stack: 'A',// stack 值相同的为同一组
+            color: 'lightgreen'
+        }]
+    });
+
+
+
+    var chart = Highcharts.chart('exam-score', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: '学生考试分数统计图'
+        },
+        credits: {
+            enabled: false
+        },
+        subtitle: {
+            text: '课程名称:数据结构<br>学生姓名:李希元'
+        },
+
+        xAxis: {
+            categories: ['考试1', '考试2', '考试3', '考试4', '考试5', '考试6'],
+            title: {
+                text: null
+            },
+            labels: {
+                style: {
+                    fontSize: '15px'
+                }
+            },
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '成绩（分）',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' 分'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true,
+                    allowOverlap: true // 允许数据标签重叠
+                }
+            }
+        },
+        // legend: {
+        //     layout: 'vertical',
+        //     align: 'right',
+        //     verticalAlign: 'top',
+        //     x: -40,
+        //     y: 50,
+        //     floating: true,
+        //     borderWidth: 1,
+        //     backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        //     shadow: true
+        // },
+        series: [{
+            name: '成绩',
+            color: 'lightblue',
+            data: [100.0, 80.0, 80.0, 60.0, 100.0, 80.0]
+        }]
+    });
+
+
+    Highcharts.chart('work-score', {
+        chart: {
+            type: 'columnpyramid'
+        },
+        title: {
+            text: '学生任务点分数统计'
+        },
+        credits: {
+            enabled: false
+        },
+        subtitle: {
+            text: '课程名称:数据结构<br>学生姓名:李希元'
+        },
+        colors: ['#1E90FF', '#ADFF2F', '#ADFF2F', '#FF00FF', '#ADFF2F'],
+        xAxis: {
+            crosshair: true,
+            categories: ['任务点1', '任务点2', '任务点3', '任务点4', '任务点5', '任务点6'],
+            labels: {
+                style: {
+                    fontSize: '15px'
+                }
+            },
+            type: 'category'
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '成绩 (分)'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' 分'
+        },
+        series: [{
+            name: '成绩',
+            colorByPoint: true,
+            data: [
+                90.0, 95.0, 94.0, 72.0, 96.0
+            ],
+            showInLegend: false
+        }]
+    });
+
+
+    Highcharts.chart('attend', {
+
+        chart: {
+
+            type: 'packedbubble',
+
+            height: '80%'
+
+        },
+        credits: {
+            enabled: false
+        },
+
+        title: {
+
+            text: '活动参与人数统计图'
+
+        },
+        subtitle: {
+            text: '图例为活动种类'
+        },
+
+
+        tooltip: {
+
+            useHTML: true,
+
+            pointFormat: '<b>attendid:{point.name}:</b> {point.value}人</sub>'
+
+        },
+
+
+        plotOptions: {
+
+            packedbubble: {
+
+                minSize: '45%',
+
+                maxSize: '100%',
+
+                zMin: 0,
+
+                zMax: 1000,
+
+                layoutAlgorithm: {
+
+                    splitSeries: false,
+
+                    gravitationalConstant: 0.02
+
+                },
+
+                dataLabels: {
+
+                    enabled: true,
+
+                    format: '{point.name}',
+
+                    filter: {
+
+                        property: 'y',
+
+                        operator: '>',
+
+                        value: 250
+
+                    },
+
+                    style: {
+
+                        color: 'black',
+
+                        textOutline: 'none',
+
+                        fontWeight: 'normal'
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        series: [{
+            name: '举手',
+            data: [
+                {
+                    name: '3000013840528',
+                    value: 92
+                },
+                {
+                    name: '3000014049135',
+                    value: 88
+                },
+                {
+                    name: '3000014439609',
+                    value: 89
+                },
+                {
+                    name: '3000014797660',
+                    value: 87
+                },
+                {
+                    name: '3000015579155',
+                    value: 88
+                },
+                {
+                    name: '3000016475141',
+                    value: 88
+                },
+                {
+                    name: '3000017014195',
+                    value: 92
+                },
+                {
+                    name: '3000018474446',
+                    value: 78
+                },
+                {
+                    name: '4000016452327',
+                    value: 45
+                },
+                {
+                    name: '4000019483913',
+                    value: 46
+                },
+                {
+                    name: '4000020034791',
+                    value: 45
+                },
+                {
+                    name: '4000020572638',
+                    value: 44
+                },
+                {
+                    name: '4000021094965',
+                    value: 45
+                },
+                {
+                    name: '4000021590960',
+                    value: 45
+                },
+                {
+                    name: '4000022108845',
+                    value: 46
+                },
+                {
+                    name: '5000013700065',
+                    value: 94
+                },
+                {
+                    name: '5000013700066',
+                    value: 102
+                },
+                {
+                    name: '5000014301437',
+                    value: 111
+                },
+                {
+                    name: '5000016594858',
+                    value: 11
+                },
+                {
+                    name: '5000017617801',
+                    value: 12
+                },
+                {
+                    name: '5000018518403',
+                    value: 12
+                },
+                {
+                    name: '5000020866987',
+                    value: 12
+                },
+                {
+                    name: '5000021254238',
+                    value: 116
+                },
+                {
+                    name: '5000021754050',
+                    value: 112
+                },
+                {
+                    name: '5000021834154',
+                    value: 12
+                },
+                {
+                    name: '5000026428509',
+                    value: 116
+                },
+                {
+                    name: '5000028542406',
+                    value: 116
+                },
+                {
+                    name: '7000013566718',
+                    value: 72
+                },
+                {
+                    name: '7000013730684',
+                    value: 74
+                },
+            ]
+        },
+        {
+            name: '选人',
+            data: [
+                {
+                    name: '3000016477665',
+                    value: 2
+                },
+                {
+                    name: '3000017010162',
+                    value: 1
+                },
+                {
+                    name: '3000017483227',
+                    value: 1
+                },
+                {
+                    name: '3000017497402',
+                    value: 2
+                },
+                {
+                    name: '3000018547177',
+                    value: 1
+                },
+                {
+                    name: '4000015134644',
+                    value: 8
+                },
+                {
+                    name: '4000015961485',
+                    value: 6
+                },
+                {
+                    name: '4000017510716',
+                    value: 5
+                },
+                {
+                    name: '4000018020431',
+                    value: 5
+                },
+                {
+                    name: '4000019490152',
+                    value: 2
+                },
+                {
+                    name: '4000021101378',
+                    value: 8
+                },
+                {
+                    name: '5000016598867',
+                    value: 5
+                },
+                {
+                    name: '5000016639085',
+                    value: 4
+                },
+                {
+                    name: '5000017626334',
+                    value: 9
+                },
+                {
+                    name: '5000018554826',
+                    value: 1
+                },
+                {
+                    name: '5000020867980',
+                    value: 2
+                },
+                {
+                    name: '6000024560875',
+                    value: 3
+                },
+                {
+                    name: '6000024592589',
+                    value: 5
+                },
+                {
+                    name: '7000013733781',
+                    value: 2
+                },
+            ]
+        },
+        {
+            name: '讨论',
+            data: [
+                {
+                    name: '4000013835383',
+                    value: 26
+                },
+                {
+                    name: '6000022370972',
+                    value: 4
+                },
+                {
+                    name: '6000022371044',
+                    value: 3
+                },
+                {
+                    name: '6000022371101',
+                    value: 3
+                },
+                {
+                    name: '6000022393847',
+                    value: 2
+                },
+                {
+                    name: '6000024070000',
+                    value: 9
+                },
+                {
+                    name: '6000024070101',
+                    value: 3
+                },
+                {
+                    name: '6000024070215',
+                    value: 1
+                },
+                {
+                    name: '6000024070301',
+                    value: 4
+                },
+                {
+                    name: '6000024070429',
+                    value: 5
+                },
+                {
+                    name: '6000024591829',
+                    value: 3
+                },
+                {
+                    name: '6000026517615',
+                    value: 1
+                },
+            ]
+        },
+        {
+            name: '任务',
+            data: [
+                {
+                    name: '4000020695370',
+                    value: 46
+                },
+                {
+                    name: '6000026922655',
+                    value: 27
+                },
+            ]
+        },
+        {
+            name: '投票',
+            data: [
+                {
+                    name: '6000022019599',
+                    value: 26
+                },
+                {
+                    name: '6000022021375',
+                    value: 25
+                },
+            ]
+        },
+        {
+            name: '作业',
+            data: [
+                {
+                    name: '4000013835779',
+                    value: 98
+                },
+                {
+                    name: '4000013836888',
+                    value: 94
+                },
+                {
+                    name: '4000013838416',
+                    value: 100
+                },
+                {
+                    name: '5000014255918',
+                    value: 111
+                },
+                {
+                    name: '5000014499405',
+                    value: 109
+                },
+                {
+                    name: '5000015310298',
+                    value: 21
+                },
+                {
+                    name: '5000015680677',
+                    value: 99
+                },
+                {
+                    name: '5000017059774',
+                    value: 28
+                },
+                {
+                    name: '5000019575195',
+                    value: 97
+                },
+                {
+                    name: '5000019686727',
+                    value: 101
+                },
+                {
+                    name: '5000021773618',
+                    value: 110
+                },
+                {
+                    name: '5000022654360',
+                    value: 118
+                },
+                {
+                    name: '5000023008105',
+                    value: 115
+                },
+                {
+                    name: '5000026916647',
+                    value: 101
+                },
+                {
+                    name: '6000021885977',
+                    value: 25
+                },
+                {
+                    name: '6000022368993',
+                    value: 26
+                },
+                {
+                    name: '6000024069751',
+                    value: 27
+                },
+                {
+                    name: '6000025354080',
+                    value: 27
+                },
+                {
+                    name: '6000025354397',
+                    value: 27
+                },
+                {
+                    name: '6000025805505',
+                    value: 26
+                },
+                {
+                    name: '6000027963227',
+                    value: 27
+                },
+                {
+                    name: '6000029238527',
+                    value: 26
+                },
+                {
+                    name: '6000029484402',
+                    value: 23
+                },
+                {
+                    name: '7000013708411',
+                    value: 57
+                },
+                {
+                    name: '7000013714458',
+                    value: 59
+                },
+                {
+                    name: '7000014094051',
+                    value: 77
+                },
+            ]
+        }
+        ]
+
+    });
+
+    Highcharts.chart('course_attend', {
+        chart: {
+            type: 'packedbubble',
+            height: '80%'
+        },
+        credits: {
+            enabled: false
+        },
+        title: {
+            text: '课程参与情况统计图'
+        },
+        subtitle: {
+            text: '课程名'
+        },
+        tooltip: {
+            useHTML: true,
+            pointFormat: '<b>attendid:{point.name}:</b> 参与人数:{point.y}人'
+        },
+        plotOptions: {
+            packedbubble: {
+                minSize: '30%',
+                maxSize: '100%',
+                zMin: 0,
+                zMax: 1500,
+                layoutAlgorithm: {
+                    gravitationalConstant: 0.05,
+                    splitSeries: true,
+                    seriesInteraction: false,
+                    dragBetweenSeries: true,
+                    parentNodeLimit: true
+                },
+                dataLabels: {
+                    enabled: true,
+                    format: 'courseid:{point.name}',
+                    filter: {
+                        property: 'y',
+                        operator: '>',
+                        value: 250
+                    },
+                    style: {
+                        color: 'black',
+                        textOutline: 'none',
+                        fontWeight: 'normal'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: '农业气象',
+            data: [
+                {
+                    name: '6000024560875',
+                    value: 3
+                },
+                {
+                    name: '6000024592589',
+                    value: 5
+                },
+                {
+                    name: '6000022370972',
+                    value: 4
+                },
+                {
+                    name: '6000022371044',
+                    value: 3
+                },
+                {
+                    name: '6000022371101',
+                    value: 3
+                },
+                {
+                    name: '6000022393847',
+                    value: 2
+                },
+                {
+                    name: '6000024070000',
+                    value: 9
+                },
+                {
+                    name: '6000024070101',
+                    value: 3
+                },
+                {
+                    name: '6000024070215',
+                    value: 1
+                },
+                {
+                    name: '6000024070301',
+                    value: 4
+                },
+                {
+                    name: '6000024070429',
+                    value: 5
+                },
+                {
+                    name: '6000024591829',
+                    value: 3
+                },
+                {
+                    name: '6000026517615',
+                    value: 1
+                },
+                {
+                    name: '6000026922655',
+                    value: 27
+                },
+                {
+                    name: '6000022019599',
+                    value: 26
+                },
+                {
+                    name: '6000022021375',
+                    value: 25
+                },
+                {
+                    name: '6000021885977',
+                    value: 25
+                },
+                {
+                    name: '6000022368993',
+                    value: 26
+                },
+                {
+                    name: '6000024069751',
+                    value: 27
+                },
+                {
+                    name: '6000025354080',
+                    value: 27
+                },
+                {
+                    name: '6000025354397',
+                    value: 27
+                },
+                {
+                    name: '6000025805505',
+                    value: 26
+                },
+                {
+                    name: '6000027963227',
+                    value: 27
+                },
+                {
+                    name: '6000029238527',
+                    value: 26
+                },
+                {
+                    name: '6000029484402',
+                    value: 23
+                },
+            ]
+        },
+        {
+            name: '地质信息技术导论',
+            data: [
+                {
+                    name: '3000018547177',
+                    value: 1
+                },
+            ]
+        },
+        {
+            name: '数据库原理',
+            data: [
+                {
+                    name: '3000013840528',
+                    value: 92
+                },
+                {
+                    name: '3000014049135',
+                    value: 88
+                },
+                {
+                    name: '3000014439609',
+                    value: 89
+                },
+                {
+                    name: '3000014797660',
+                    value: 87
+                },
+                {
+                    name: '3000015579155',
+                    value: 88
+                },
+                {
+                    name: '3000016475141',
+                    value: 88
+                },
+                {
+                    name: '3000017014195',
+                    value: 92
+                },
+                {
+                    name: '3000018474446',
+                    value: 78
+                },
+                {
+                    name: '3000016477665',
+                    value: 2
+                },
+                {
+                    name: '3000017010162',
+                    value: 1
+                },
+                {
+                    name: '3000017483227',
+                    value: 1
+                },
+                {
+                    name: '3000017497402',
+                    value: 2
+                },
+            ]
+        },
+        {
+            name: '数据结构',
+            data: [
+                {
+                    name: '7000013566718',
+                    value: 72
+                },
+                {
+                    name: '7000013730684',
+                    value: 74
+                },
+                {
+                    name: '7000013733781',
+                    value: 2
+                },
+                {
+                    name: '7000013708411',
+                    value: 57
+                },
+                {
+                    name: '7000013714458',
+                    value: 59
+                },
+                {
+                    name: '7000014094051',
+                    value: 77
+                },
+            ]
+        },
+        {
+            name: '液压传动',
+            data: [
+                {
+                    name: '4000016452327',
+                    value: 45
+                },
+                {
+                    name: '4000019483913',
+                    value: 46
+                },
+                {
+                    name: '4000020034791',
+                    value: 45
+                },
+                {
+                    name: '4000020572638',
+                    value: 44
+                },
+                {
+                    name: '4000021094965',
+                    value: 45
+                },
+                {
+                    name: '4000021590960',
+                    value: 45
+                },
+                {
+                    name: '4000022108845',
+                    value: 46
+                },
+                {
+                    name: '4000015134644',
+                    value: 8
+                },
+                {
+                    name: '4000015961485',
+                    value: 6
+                },
+                {
+                    name: '4000017510716',
+                    value: 5
+                },
+                {
+                    name: '4000018020431',
+                    value: 5
+                },
+                {
+                    name: '4000019490152',
+                    value: 2
+                },
+                {
+                    name: '4000021101378',
+                    value: 8
+                },
+                {
+                    name: '4000020695370',
+                    value: 46
+                },
+            ]
+        },
+        {
+            name: '现代软件工程',
+            data: [
+                {
+                    name: '4000013835383',
+                    value: 26
+                },
+                {
+                    name: '4000013835779',
+                    value: 98
+                },
+                {
+                    name: '4000013836888',
+                    value: 94
+                },
+                {
+                    name: '4000013838416',
+                    value: 100
+                },
+            ]
+        },
+        {
+            name: '离散数学',
+            data: [
+                {
+                    name: '5000021254238',
+                    value: 116
+                },
+                {
+                    name: '5000021754050',
+                    value: 112
+                },
+                {
+                    name: '5000026428509',
+                    value: 116
+                },
+                {
+                    name: '5000028542406',
+                    value: 116
+                },
+                {
+                    name: '5000021773618',
+                    value: 110
+                },
+                {
+                    name: '5000022654360',
+                    value: 118
+                },
+                {
+                    name: '5000023008105',
+                    value: 115
+                },
+            ]
+        },
+        {
+            name: '统计学与数据分析',
+            data: [
+                {
+                    name: '5000016594858',
+                    value: 11
+                },
+                {
+                    name: '5000017617801',
+                    value: 12
+                },
+                {
+                    name: '5000018518403',
+                    value: 12
+                },
+                {
+                    name: '5000020866987',
+                    value: 12
+                },
+                {
+                    name: '5000021834154',
+                    value: 12
+                },
+                {
+                    name: '5000016598867',
+                    value: 5
+                },
+                {
+                    name: '5000016639085',
+                    value: 4
+                },
+                {
+                    name: '5000017626334',
+                    value: 9
+                },
+                {
+                    name: '5000018554826',
+                    value: 1
+                },
+                {
+                    name: '5000020867980',
+                    value: 2
+                },
+            ]
+        },
+        {
+            name: '高等数学B2',
+            data: [
+                {
+                    name: '5000013700065',
+                    value: 94
+                },
+                {
+                    name: '5000013700066',
+                    value: 102
+                },
+                {
+                    name: '5000014301437',
+                    value: 111
+                },
+                {
+                    name: '5000014255918',
+                    value: 111
+                },
+                {
+                    name: '5000014499405',
+                    value: 109
+                },
+                {
+                    name: '5000015310298',
+                    value: 21
+                },
+                {
+                    name: '5000015680677',
+                    value: 99
+                },
+                {
+                    name: '5000017059774',
+                    value: 28
+                },
+                {
+                    name: '5000019575195',
+                    value: 97
+                },
+                {
+                    name: '5000019686727',
+                    value: 101
+                },
+                {
+                    name: '5000026916647',
+                    value: 101
+                }
+            ]
+        }
+        ]
+    });
+
+
+
+    // 去掉这里的注释就是类似 Apple Watch 上的效果了
+    if (!Highcharts.theme) {
+        Highcharts.setOptions({
+            colors: ['#F62366', '#9DFF02', '#0CCDD6'],
+            title: {
+                style: {
+                    color: 'black'
+                }
+            },
+            tooltip: {
+                style: {
+                    color: 'silver'
+                }
+            }
+        });
+    }
+    Highcharts.chart('predict-score', {
+        chart: {
+            type: 'solidgauge',
+            marginTop: 50
+        },
+        credits: {
+            enabled: false
+        },
+
+        title: {
+            text: '学生成绩预测',
+            style: {
+                fontSize: '24px'
+            }
+        },
+        dataLabels: {
+            enabled: true
+        },
+        subtitle: {
+            text: '课程名称:数据结构<br>学生姓名:李希元'
+        },
+        pane: {
+            startAngle: 0,
+            endAngle: 360,
+            background: [{ // Track for Exercise
+                outerRadius: '87%',
+                innerRadius: '63%',
+                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true
+                }
+            }]
+        },
+        yAxis: {
+            min: 0,
+            max: 100,
+            lineWidth: 0,
+            dataLabels: {
+                enabled: true
+            },
+            tickPositions: []
+        },
+        plotOptions: {
+            solidgauge: {
+                borderWidth: '34px',
+                dataLabels: {
+                    enabled: true
+                },
+                credits: {
+                    enabled: false
+                },
+                linecap: 'round',
+                stickyTracking: false
+            },
+            tooltip: {
+                enabled: false
+            }
+        },
+        series: [{
+            name: '预测成绩',
+            borderColor: Highcharts.getOptions().colors[1],
+            dataLabels: {
+                format: '<span style="font-size:3em;">{series.name}</span><br><span style="font-size:4em; color: {point.color}; font-weight: bold;"> {point.y}分</span>',
+                tooltip: {
+                    enabled: false
+                },
+                y: -50
+            },
+            data: [{
+                color: Highcharts.getOptions().colors[1],
+                radius: '75%',
+                innerRadius: '75%',
+                y: 65
+            }]
+        }]
+    },
+        /**
+* In the chart load callback, add icons on top of the circular shapes
+*/
+        function callback() {
+            // Move icon
+            this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8])
+                .attr({
+                    'stroke': '#303030',
+                    'stroke-linecap': 'round',
+                    'stroke-linejoin': 'round',
+                    'stroke-width': 2,
+                    'zIndex': 10
+                })
+                .translate(190, 26)
+                .add(this.series[2].group);
+            // Exercise icon
+            this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8, 'M', 8, -8, 'L', 16, 0, 8, 8])
+                .attr({
+                    'stroke': '#fff',
+                    'stroke-linecap': 'round',
+                    'stroke-linejoin': 'round',
+                    'stroke-width': 2,
+                    'zIndex': 10
+                })
+                .translate(190, 61)
+                .add(this.series[2].group);
+            // Stand icon
+            this.renderer.path(['M', 0, 8, 'L', 0, -8, 'M', -8, 0, 'L', 0, -8, 8, 0])
+                .attr({
+                    'stroke': '#303030',
+                    'stroke-linecap': 'round',
+                    'stroke-linejoin': 'round',
+                    'stroke-width': 2,
+                    'zIndex': 10
+                })
+                .translate(190, 96)
+                .add(this.series[2].group);
+        });
+
+
+    // #分页栏立即刷新
+
+
+</script>
+
+{% endblock javascripts %}

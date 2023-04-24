@@ -1,0 +1,653 @@
+{% extends "layouts/base.html" %}
+{% load book_extras %}
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+        <div class="main-body">
+            <br>
+            <div class="page-wrapper">
+                <div class="row">
+                    <!--  Count Books  -->
+                    <div class='col-md-3'>
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-user-graduate f-40 text-c-blue "></i>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <h3 class="f-w-300">{{data_count.book}}</h3> -->
+                                        <h3 class="f-w-300">2478</h3>
+
+                                        <span class="d-block text-uppercase" style="font-size: 25px;">学生总数</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Count Members -->
+                    <div class='col-md-3'>
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-user-friends f-40 " style="color:coral"></i>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <h3 class="f-w-300">{{data_count.member}}</h3> -->
+                                        <h3 class="f-w-300">55</h3>
+
+                                        <span class="d-block text-uppercase" style="font-size: 25px;">班级总数</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Count Categories -->
+                    <div class='col-md-3'>
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-book f-40 text-c-purple"></i>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <h3 class="f-w-300">{{data_count.category}}</h3> -->
+                                        <h3 class="f-w-300">12</h3>
+
+                                        <span class="d-block text-uppercase" style="font-size: 25px;">课程总数</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Count Publishers -->
+                    <div class='col-md-3'>
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-auto">
+                                        <i class=" fas fa-chalkboard-teacher f-40 text-c-green"></i>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <h3 class="f-w-300">{{data_count.publisher}}</h3> -->
+                                        <h3 class="f-w-300">60</h3>
+
+                                        <span class="d-block text-uppercase" style="font-size: 25px;">教师总数</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-8 col-md-6">
+                        <!-- Recent Closed Records -->
+                        <div class="card Recent-Users">
+                            <div class="card-header">
+                                <h5>近期查找学生记录</h5>
+                            </div>
+                            <div class="card-block px-0 py-3">
+                                <div class="table-responsive">
+                                    <table class="table table-hover ">
+                                        <thead class="">
+                                            <tr>
+                                                <th>Uid</th>
+                                                <th>姓名</th>
+                                                <th>专业</th>
+                                                <th>在线时长</th>
+                                                <!-- <th>On Time ?</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- {% for r in new_closed_records %}
+                                                <tr class="unread">
+                                                 <td>
+                                                        <p class="mb-1"><a href="{% url 'record_detail' r.pk %}">{{ r.borrower}}</a></p>
+                                                        <p class="m-0"><i class="fas fa-credit-card" style="color: Tomato;"></i>&nbsp;{{r.borrower_card}}&nbsp;&nbsp;<i class="fas fa-mobile" style="color: cornflowerblue;"></i>&nbsp;{{r.borrower_phone_number}}</p>
+                                                 </td>
+                                                    <td>{{r.book |truncatewords:2}}</td>
+                                                    <td>{{r.start_day|date:"Y/m/d" }} - {{r.end_day|date:"Y/m/d" }} </td>
+                                                    <td>{{r.closed_at | timesince}}</td>
+                                                    <td>{{r.return_status}}</td>
+                                                </tr>
+                                                {% endfor %}
+                                             -->
+
+
+
+                                            <tr class="unread">
+                                                <td>
+                                                    82832356
+                                                </td>
+                                                <td>金斐翔 </td>
+                                                <td>资源勘查工程（工科基地班）</td>
+                                                <td>48804</td>
+                                                <!-- <td>{{r.return_status}}</td> -->
+                                            </tr>
+
+                                            <tr class="unread">
+                                                <td>
+                                                    66019044
+                                                </td>
+                                                <td>贺瑛</td>
+                                                <td>工程管理</td>
+                                                <td>364032</td>
+                                                <!-- <td>{{r.return_status}}</td> -->
+                                            </tr>
+
+                                            <tr class="unread">
+                                                <td>
+                                                    147024092
+                                                </td>
+                                                <td>沈皓元 </td>
+                                                <td>测绘工程</td>
+                                                <td>27094</td>
+                                                <!-- <td>{{r.return_status}}</td> -->
+                                            </tr>
+
+                                            <tr class="unread">
+                                                <td>
+                                                    66005970
+                                                </td>
+                                                <td>杨新志</td>
+                                                <td>土木工程（岩土工程）</td>
+                                                <td>180</td>
+                                                <!-- <td>{{r.return_status}}</td> -->
+                                            </tr>
+
+                                            <tr class="unread">
+                                                <td>
+                                                    103130657
+                                                </td>
+                                                <td>李雨震 </td>
+                                                <td>地球科学菁英班（遥感科学与技术）</td>
+                                                <td>70397</td>
+                                                <!-- <td>{{r.return_status}}</td> -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card card-event">
+                            <!-- Coming Event -->
+                            <div class="card-block">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col">
+                                        <h5 class="m-0">所有课程完成率</h5>
+                                    </div>
+                                    <div class="col-auto">
+                                        <label class="label theme-bg2 text-white f-14 f-w-400 float-right">77%</label>
+                                    </div>
+                                </div>
+                                <h2 class="mt-3 f-w-300">147<sub class="text-muted f-14">任务点</sub></h2>
+                                <!-- <h6 class="text-muted mt-4 mb-0">You can participate in event </h6> -->
+                                <i class="fab fa-angellist text-c-purple f-50"></i>
+                            </div>
+                        </div>
+                        <!-- New members registed this week -->
+                        <div class="card">
+                            <div class="card-block border-bottom">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-user f-30 " style="color:coral"></i>
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="mt-2 f-w-300">0 <sub class="text-muted f-15 ">新增学生</sub></h3>
+                                        <span class="d-block text-uppercase">7日内</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Books lent this week -->
+                            <div class="card-block">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-book f-30 text-c-blue "></i>
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="mt-2 f-w-300">0 <sub class="text-muted f-15 ">新增课程</sub></h3>
+                                        <span class="d-block text-uppercase">7日内</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-xl-4 col-md-6">
+                            <div class="card user-list">
+                                <div class="card-header">
+                                    <h5>Rating</h5>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center m-b-20">
+                                        <div class="col-6">
+                                            <h2 class="f-w-300 d-flex align-items-center float-left m-0">4.7 <i class="fas fa-star f-10 m-l-10 text-c-yellow"></i></h2>
+                                        </div>
+                                        <div class="col-6">
+                                            <h6 class="d-flex  align-items-center float-right m-0">0.4 <i class="fas fa-caret-up text-c-green f-22 m-l-10"></i></h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <h6 class="align-items-center float-left"><i class="fas fa-star f-10 m-r-10 text-c-yellow"></i>5</h6>
+                                            <h6 class="align-items-center float-right">384</h6>
+                                            <div class="progress m-t-30 m-b-20" style="height: 6px;">
+                                                <div class="progress-bar progress-c-theme" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+   
+                                        <div class="col-xl-12">
+                                            <h6 class="align-items-center float-left"><i class="fas fa-star f-10 m-r-10 text-c-yellow"></i>2</h6>
+                                            <h6 class="align-items-center float-right">1</h6>
+                                            <div class="progress m-t-30  m-b-20" style="height: 6px;">
+                                                <div class="progress-bar progress-c-theme" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <h6 class="align-items-center float-left"><i class="fas fa-star f-10 m-r-10 text-c-yellow"></i>1</h6>
+                                            <h6 class="align-items-center float-right">0</h6>
+                                            <div class="progress m-t-30  m-b-20" style="height: 6px;">
+                                                <div class="progress-bar" role="progressbar" style="width:0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    <div class="col-xl-12 col-md-12 m-b-30">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>近期新增</h5>
+                            </div>
+                            <div class="card-block ">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link " id="home-tab" data-toggle="tab" href="#new_member"
+                                            role="tab" aria-controls="home" aria-selected="false">新增学生</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " id="profile-tab" data-toggle="tab" href="#stock" role="tab"
+                                            aria-controls="profile" aria-selected="false">新增任务点</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#logs" role="tab"
+                                            aria-controls="contact" aria-selected="false">新增试题 </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active show" id="contact-tab" data-toggle="tab"
+                                            href="#return" role="tab" aria-controls="return"
+                                            aria-selected="false">新增考试</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <!-- New members -->
+                                    <div class="tab-pane fade " id="new_member" role="tabpanel"
+                                        aria-labelledby="home-tab">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Uid </th>
+                                                    <th>姓名</th>
+                                                    <th>性别</th>
+                                                    <th>学院 </th>
+                                                    <th>专业</th>
+                                                    <th>创建时间</th>
+                                                    <th class="text-right"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- {% for member in new_members %}
+                                                <tr>
+                                                    <td><a href="{% url 'member_detail' member.pk %}">{{member.name}}</a></td>
+                                                    {% if member.gender == 'm' %}
+                                                    <td><i class="fas fa-mars "></i></td>
+                                                    {% else %}
+                                                    <td><i class="fas fa-venus"></i></td>
+                                                    {% endif %}
+                                                    <td>{{member.age}}</td>     
+                                                    <td>{{member.card_number}}</td>  
+                                                    <td>{{member.created_at| timesince}}</td>
+                                                    <td>{{member.created_by}}</td>                     
+         
+                                                </tr>
+    
+                                                {% endfor %}
+                                                -->
+
+                                                <tr>
+                                                    <td>66011501</td>
+                                                    <td>胡诗睿</td>
+                                                    <td><i class="fas fa-venus "></i></td>
+                                                    <td>地理与信息工程学院</td>
+                                                    <td>测绘科学与技术</td>
+                                                    <td>2023/1/5</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>70457260</td>
+                                                    <td>肖剑芳</td>
+                                                    <td><i class="fas fa-mars "></i></td>
+                                                    <td>工程学院</td>
+                                                    <td>土木工程</td>
+                                                    <td>2023/1/5</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>65335857</td>
+                                                    <td>朱治宇</td>
+                                                    <td><i class="fas fa-mars "></i></td>
+                                                    <td>公共管理学院</td>
+                                                    <td>土地资源管理</td>
+                                                    <td>2023/1/5</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>176869800</td>
+                                                    <td>关鹏</td>
+                                                    <td><i class="fas fa-mars "></i></td>
+                                                    <td>工程学院</td>
+                                                    <td>土木工程（工程）</td>
+                                                    <td>2023/1/5</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>234989643</td>
+                                                    <td>靳子璇</td>
+                                                    <td><i class="fas fa-mars "></i></td>
+                                                    <td>公共管理学院</td>
+                                                    <td>土地资源管理</td>
+                                                    <td>2023/1/5</td>
+                                                </tr>
+
+
+
+
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <!-- Book inventory -->
+                                    <div class="tab-pane fade " id="stock" role="tabpanel"
+                                        aria-labelledby="profile-tab">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>课程编号</th>
+                                                    <th>任务名</th>
+                                                    <th>创建时间</th>
+                                                    <th class="text-right"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- {% for book in short_inventory %}
+                                                <tr>
+                                                    <td><a href="{% url 'book_detail' book.pk %}">{{book.title}}</a></td>
+                                                    <td>{{book.author}}</td>
+                                                    <td>{{book.quantity}}</td>     
+                                                    <td>{{book.floor_number}}{{book.bookshelf_number}}</td>                       
+                                                    {% if book.quantity < 5 %}
+                                                    <td class="text-center"><i class="fas fa-exclamation-circle text-c-red f-20"></i></td>
+                                                    {% elif  book.quantity > 5 and book.quantity <= 10 %}
+                                                    <td class="text-center"><i class="fas fa-exclamation-circle text-c-purple f-20"></i></td>
+                                                    {% endif %}
+                                                </tr>
+    
+                                                {% endfor %} -->
+
+                                                <tr>
+                                                    <td>1072615890</td>
+                                                    <td>222602451</td>
+                                                    <td>sp9-完整.mp4</td>
+                                                    <td>2022/4/9</td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td>1062119789</td>
+                                                    <td>222820410</td>
+                                                    <td>5参照完整性_2.mov</td>
+                                                    <td>2022/3/31</td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td>1062119509</td>
+                                                    <td>222820410</td>
+                                                    <td>5参照完整性_1.mov</td>
+                                                    <td>2022/3/31</td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td>1037938227</td>
+                                                    <td>222820410</td>
+                                                    <td>openEuler+openGauss-7-数据库容器的启动与关闭.mov</td>
+                                                    <td>2022/3/17</td>
+
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td>990773100</td>
+                                                    <td>222675513</td>
+                                                    <td>4.4.5紊流的流速分布.mp4</td>
+                                                    <td>2022/2/22</td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <!-- Recent Logs -->
+                                    <div class="tab-pane fade" id="logs" role="tabpanel" aria-labelledby="contact-tab">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>课程编号</th>
+                                                    <th>试题编号</th>
+                                                    <th>创建时间</th>
+                                                    <th class="text-right"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- {% for log in recent_user_activities %}
+                                                    <tr>   
+                                                        <td><img class="rounded-circle  m-r-10" style="width:30px;" src="{{user_avatar|get_item:log.created_by}}" >{{log.created_by}}</td>
+                                                        <td> {{log.detail}} </td>
+                                                        <td>{{log.created_at |date:"Y-m-d"}}</td>
+                                                        <td>{{ log.created_at | timesince }}</td>
+                                                        <td>{{log.get_operation_type_display}} </td>
+    
+                                                        {% ifequal log.operation_type "success" %}
+                                                            <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
+                                                        {% endifequal %}
+    
+                                                        {% ifequal log.operation_type "warning" %}
+                                                            <td class="text-right"><i class="fas fa-circle text-c-yellow f-10"></i></td>
+                                                        {% endifequal %}
+    
+                                                        {% ifequal log.operation_type "danger" %}
+                                                            <td class="text-right"><i class="fas fa-circle text-c-red f-10"></i></td>
+                                                        {% endifequal %}
+
+
+                                                        {% ifequal log.operation_type "info" %}
+                                                        <td class="text-right"><i class="fas fa-circle text-c-blue f-10"></i></td>
+                                                    {% endifequal %}
+    
+                                                    </tr>
+    
+                                                {% endfor %} -->
+
+
+
+
+
+                                                <tr>
+                                                    <td>8751951</td>
+                                                    <td>1944026</td>
+                                                    <td>5421656</td>
+                                                    <td>2023/2/17</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>8751889</td>
+                                                    <td>1944026</td>
+                                                    <td>5421657</td>
+                                                    <td>2023/2/17</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>8751909</td>
+                                                    <td>1944026</td>
+                                                    <td>5421658</td>
+                                                    <td>2023/2/17</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>8751952</td>
+                                                    <td>1944026</td>
+                                                    <td>5421659</td>
+                                                    <td>2023/2/17</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>8751923</td>
+                                                    <td>1944026</td>
+                                                    <td>5421660</td>
+                                                    <td>2023/2/17</td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- Retrun books this week -->
+                                    <div class="tab-pane fade active show" id="return" role="tabpanel"
+                                        aria-labelledby="contact-tab">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>课程编号</th>
+                                                    <th>考试名</th>
+                                                    <th>创建时间 </th>
+                                                    <th>更新时间</th>
+                                                    <th class=""></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- {% for r in books_return_thisweek %}
+                                                <tr>   
+                                                    <td><a href="{% url 'record_detail' r.pk %}">{{ r.borrower}}</a></td>
+                                                    <td>{{r.borrower_card}}</td>
+                                                    <td>{{r.borrower_phone_number}} </td>
+                                                    <td>{{r.book |truncatewords:2}}</td>
+                                                    <td>{{r.start_day|date:"Y-m-d" }} </td>
+                                                    <td>{{r.end_day|date:"Y-m-d" }} </td>
+                                                    {% if r.return_status == "Delayed" %}
+                                                    <td class='table-danger'>{{r.return_status}} {{r.get_delay_number_days}} days</td>
+
+                                                    {% else %}
+                                                    <td class= 'table-success'>{{r.return_status}}</td>
+
+                                                    {% endif %}
+
+                                                    {% if r.open_or_close == 0 %}
+                                                    <td><a href="{% url 'record_detail' r.pk %}" class="badge badge-danger badge-bg"><i class="fa fa-times"></i>&nbsp;Close</a></td>
+                                                    {% else %}
+                                                    <td>Closed</td>
+
+                                                    {% endif %}
+                                                    
+                                                </tr>
+
+                                            {% endfor %} -->
+
+
+
+
+                                                <tr>
+                                                    <td>183272599</td>
+                                                    <td>222652756</td>
+                                                    <td>新建试卷20220905101305</td>
+                                                    <td>2022/9/5 10:13:00</td>
+                                                    <td>2022/9/5 10:13:00</td>
+
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td>172371762</td>
+                                                    <td>223945300</td>
+                                                    <td>课程论文</td>
+                                                    <td>2022/6/23 17:41:00</td>
+                                                    <td>2022/6/23 17:41:00</td>
+
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td>171461197</td>
+                                                    <td>222652756</td>
+                                                    <td>液压传动试卷2</td>
+                                                    <td>2022/6/18 16:38:00</td>
+                                                    <td>2022/6/18 16:38:00</td>
+
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td>167770391</td>
+                                                    <td>222652756</td>
+                                                    <td>无穷级数</td>
+                                                    <td>2022/6/1 11:10:00</td>
+                                                    <td>2022/6/1 11:10:00</td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td>165227682</td>
+                                                    <td>112709080</td>
+                                                    <td>液压传动试卷1</td>
+                                                    <td>2022/5/20 10:13:00</td>
+                                                    <td>2022/5/20 10:13:00</td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+
+    {% block javascripts %}{% endblock javascripts %}

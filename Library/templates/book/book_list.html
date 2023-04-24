@@ -1,0 +1,177 @@
+{% extends "layouts/base.html" %}
+{% load book_extras %}
+{% block title %} Management {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Courses Management</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+                    <!-- [ basic-table ] start -->
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Total 20 Courses</h5>
+                            </div>
+
+                            {% show_messages %}
+
+                            <div class="card-block">
+                                <div class='row'>
+                                    <div class="col-8">
+                                        <b>Sort By : - </b>
+                                        <!-- <a href="{% url 'book_list' %}?search={{search}}&orderby=id">Id</a>  | 
+                                        <a href="{% url 'book_list' %}?search={{ search }}&orderby=author">Author</a> |  
+                                        <a href="{% url 'book_list' %}?search={{ search }}&orderby=title">Title</a> | 
+                                        <a href="{% url 'book_list' %}?search={{ search }}&orderby=quantity">Quantity</a> -->
+
+
+                                        <a href="#">Id</a>  | 
+                                        <a href="#">Course_number</a> |  
+                                        <a href="#">Name</a>
+                                    </div>
+   
+                                    <div class="col-4">
+                                        <form class="form-inline mb-2">
+                                            <div class="form-group mx-sm-3 mb-2">
+                                                <input type="text" 
+                                                       class="form-control" 
+                                                       name="search",
+                                                       id='search',
+                                                       placeholder="Search Id / name",
+                                                       value={{search}}
+                                                       >
+                                            </div>
+                                            <button type="submit" class="btn btn-secondary mb-2 btn-sm">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive ">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <!-- <th>#</th> -->
+                                                <th>Id</th>
+                                                <th>课程名</th>
+                                                <th>课程编号</th>
+                                                <th>课程老师编号</th>
+                                                <th>课程章节数</th>
+                                                <th>创建时间</th>
+                                                <th>最近修改时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <!-- {% for book in books %}
+                                            <tr>
+                                                <th scope="row">{{book.id}}</th>
+                                                <td>{{book.title|slice:'10'}}</td>
+                                                <td>{{book.author}}</td>
+                                                <td>{{book.category}}</td>
+                                                <td>{{book.updated|date:"Y/m/d H:i" }}</td>
+                                                <td>{{book.get_status_display}}</td>
+                                                <td>{{book.quantity}}</td>
+                                                <td>{{book.floor_number}}{{book.bookshelf_number}}</td>
+                                                <td>{{book.updated_by}}  </td>
+                                                <td>                                
+                                                    <a href="{% url 'book_detail' book.id%}" class="badge badge-warning"><i class="feather icon-eye"></i></a>
+                                                    <a href="{% url 'book_update' book.id%}" class="badge badge-info"><i class="feather icon-edit"></i>&nbsp;Update</a>&nbsp;
+                                                    <a href="{% url 'book_delete' book.id%}" class="badge badge-danger"><i class="feather icon-trash-2"></i>&nbsp;Delete</a>&nbsp;
+                                                </td>
+
+                                            </tr>
+                                            {% endfor %} -->
+                                            <tr>
+                                                
+                                                <td>222595437</td>
+                                                <td>岩溶水文地质学</td>
+                                                <td>222595437</td>
+                                                <td>147373888</td>
+                                                <td>5</td>
+                                                <td>2022/1/30</td>
+                                                <td>2023/1/5</td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td>222602451</td>
+                                                <td>液压传动</td>
+                                                <td>20727300</td>
+                                                <td>147373888</td>
+                                                <td>71</td>
+                                                <td>2022/2/3</td>
+                                                <td>2023/2/7</td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td>222652756</td>
+                                                <td>高等数学B2</td>
+                                                <td>222652756</td>
+                                                <td>134305403</td>
+                                                <td>5</td>
+                                                <td>2022/2/12   </td>
+                                                <td>2022/9/13</td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td>222675513</td>
+                                                <td>水力学</td>
+                                                <td>222675513</td>
+                                                <td>153867091</td>
+                                                <td>98</td>
+                                                <td>2022/2/14</td>
+                                                <td>2022/10/16</td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td>2227605467</td>
+                                                <td>智能传感与检测技术</td>
+                                                <td>22308400</td>
+                                                <td>112512597</td>
+                                                <td>36</td>
+                                                <td>2022/2/17</td>
+                                                <td>2022/3/22</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <!-- <div class='col-4'>
+                                        <a href="{% url 'book_create' %}" class='btn btn-primary'>Add book</a>
+                                    </div> -->
+                                    <div class='col-8'>
+                                        {% show_pagination %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,710 @@
+{% extends "layouts/base.html" %}
+{% load book_extras %}
+{% load static %}
+
+{% block title %} Borrow Records {% endblock %}
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">学生情况</h5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="row">
+
+
+                    <div class="col-xl-7 col-md-6">
+                        <div class="card card-event">
+                            <!-- Coming Event -->
+                            <div class="card-block">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col">
+                                        <h5 class="m-0">近期考试成绩</h5>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-striped table-bordered">
+
+                                            <tbody>
+
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        测验1:
+                                                    </td>
+                                                    <td align="center" class="exam">暂无数据 </td>
+                                                </tr>
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        测验2:
+                                                    </td>
+                                                    <td align="center" class="exam">暂无数据 </td>
+                                                </tr>
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        测验3:
+                                                    </td>
+                                                    <td align="center" class="exam">暂无数据 </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- New members registed this week -->
+                        <div class="card card-event">
+                            <!-- Coming Event -->
+                            <div class="card-block">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col">
+                                        <h5 class="m-0">近期作业成绩</h5>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-striped table-bordered">
+
+                                            <tbody>
+
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        作业1:
+                                                    </td>
+                                                    <td align="center" class="work">暂无数据 </td>
+                                                </tr>
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        作业2:
+                                                    </td>
+                                                    <td align="center" class="work">暂无数据 </td>
+                                                </tr>
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        作业3:
+                                                    </td>
+                                                    <td align="center" class="work">暂无数据 </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="card card-event">
+                            <!-- Coming Event -->
+                            <div class="card-block">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col">
+                                        <h5 class="m-0">近期任务点完成情况</h5>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-striped table-bordered">
+
+                                            <tbody>
+
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        任务点1:
+                                                    </td>
+                                                    <td align="center" class="job">暂无数据</td>
+                                                </tr>
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        任务点2:
+                                                    </td>
+                                                    <td align="center" class="job">暂无数据 </td>
+                                                </tr>
+                                                <tr class="unread">
+                                                    <td width="10%">
+                                                        任务点3:
+                                                    </td>
+                                                    <td align="center" class="job">暂无数据 </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5 col-md-6">
+                        <div class="card card-event">
+                            <!-- Coming Event -->
+                            <div class="card-block">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col">
+                                        <h5 class="m-0">查找</h5>
+                                    </div>
+
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">学生姓名</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default" id="na" placeholder="请输入学生姓名">
+                                    <button class="btn btn-outline-secondary" type="button" id="butt"
+                                        _msttexthash="6265571" _msthash="570" data-id="name">查找</button>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">学生学号</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default" id="nu" placeholder="请输入学生学号">
+                                    <button class="btn btn-outline-secondary" type="button" id="butt"
+                                        _msttexthash="6265571" _msthash="570" data-id="number">查找</button>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">所选课程</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default" id="cl" placeholder="请输入课程号">
+                                    <button class="btn btn-outline-secondary" type="button" id="butt"
+                                        _msttexthash="6265571" _msthash="570" data-id="course">查找</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="card card-event" style="margin-top:200px">
+                            <!-- Coming Event -->
+                            <div class="card-block">
+                                <div class="panel panel-default">
+                                    <h3>预计成绩</h3>
+                                    <figure class="highcharts-figure">
+                                        <div id="container-score" style="height: 200px; "></div>
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/highcharts.src.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/highcharts-more.js' %}"> </script>
+<script type="text/javascript" src="{% static 'js/modules/solid-gauge.js' %}"> </script>
+<!-- <script type="text/javascript" src="../../js/modules/solid-gauge.js"> </script> -->
+<!-- <script type="text/javascript" src="../../js/zh_cn.js"> </script> -->
+
+<!-- 
+<script type="text/javascript" src="https://code.hcharts.cn/highstock/highstock.js"></script>
+<script type="text/javascript" src="https://code.hcharts.cn/highcharts/highcharts-more.js"></script>
+<script type="text/javascript" src="https://code.hcharts.cn/highcharts/modules/solid-gauge.js"></script> -->
+
+<script>
+
+
+
+    const pre_score = [
+        {
+            personid: 51455892, name: "史阳", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 95.0, work_2: 100.0, work_3: 100.0, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 60.3
+        },
+        {
+            personid: 111943588, name: "李辰星", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 97.2, work_2: 98.0, work_3: 99.3, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 66.3
+        },
+        {
+            personid: 111943800, name: "潘子怡", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 95.0, work_2: 99.8, work_3: 100.0, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 71.0
+        },
+        {
+            personid: 111943930, name: "胡秋雨", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 80.0, work_2: 100.0, work_3: 100.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 65.6
+        },
+        {
+            personid: 111943976, name: "李佳琪", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 36.7, work_2: 80.0, work_3: 90.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 61.0
+        },
+        {
+            personid: 111944017, name: "邓咏霖", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 95.0, work_2: 98.3, work_3: 99.1, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 60.8
+        },
+        {
+            personid: 111944142, name: "徐源徽", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 91.0, work_3: 98.9, job_1: "Yes", job_2: "No", job_3: "No", prescore: 61.3
+        },
+        {
+            personid: 111944220, name: "吴周璇", courseid: 222820410, exam_1: 90.0, exam_2: 92.0, exam_3: 100.0, work_1: 0.0, work_2: 70.8, work_3: 95.0, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 70.3
+        },
+        {
+            personid: 111944409, name: "陈明均", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 93.3, work_2: 95.5, work_3: 98.3, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 61.2
+        },
+        {
+            personid: 111944552, name: "方知雨", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 90.0, work_3: 93.3, job_1: "No", job_2: "Yes", job_3: "No", prescore: 70.5
+        },
+        {
+            personid: 111944682, name: "钟鼎", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 90.0, work_3: 98.9, job_1: "Yes", job_2: "No", job_3: "No", prescore: 68.5
+        },
+        {
+            personid: 111944733, name: "殷安琪", courseid: 222820410, exam_1: 82.5, exam_2: 90.0, exam_3: 90.0, work_1: 92.0, work_2: 92.2, work_3: 100.0, job_1: "No", job_2: "Yes", job_3: "No", prescore: 67.5
+        },
+        {
+            personid: 111945162, name: "陈博", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 98.0, work_3: 100.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 64.7
+        },
+        {
+            personid: 111945472, name: "高天弘", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 91.0, work_2: 95.0, work_3: 99.6, job_1: "No", job_2: "Yes", job_3: "Yes", prescore: 70.6
+        },
+        {
+            personid: 111945723, name: "马永彪", courseid: 222820410, exam_1: 85.0, exam_2: 93.0, exam_3: 100.0, work_1: 0.0, work_2: 0.0, work_3: 90.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 69.6
+        },
+        {
+            personid: 111945816, name: "刘广林", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 96.0, work_2: 100.0, work_3: 100.0, job_1: "No", job_2: "Yes", job_3: "No", prescore: 70.7
+        },
+        {
+            personid: 111945910, name: "宋沐昕", courseid: 222820410, exam_1: 90.0, exam_2: 92.5, exam_3: 100.0, work_1: 100.0, work_2: 100.0, work_3: 100.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 70.0
+        },
+        {
+            personid: 111946120, name: "王殷飞", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 0.0, work_3: 95.0, job_1: "No", job_2: "No", job_3: "No", prescore: 66.8
+        },
+        {
+            personid: 111946139, name: "程通", courseid: 222820410, exam_1: 85.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 93.0, work_3: 96.7, job_1: "No", job_2: "No", job_3: "Yes", prescore: 70.3
+        },
+        {
+            personid: 111946232, name: "刘梦苑", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 0.0, work_3: 60.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 70.1
+        },
+        {
+            personid: 111946452, name: "丁毅", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 99.3, work_3: 100.0, job_1: "No", job_2: "No", job_3: "No", prescore: 61.7
+        },
+        {
+            personid: 111946524, name: "陈怡雯", courseid: 222820410, exam_1: 85.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 90.0, work_3: 93.3, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 69.9
+        },
+        {
+            personid: 111946538, name: "李雯玥", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 95.0, work_2: 95.5, work_3: 95.6, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 69.7
+        },
+        {
+            personid: 111946630, name: "林杰", courseid: 222820410, exam_1: 90.0, exam_2: 92.0, exam_3: 100.0, work_1: 0.0, work_2: 83.4, work_3: 96.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 69.9
+        },
+        {
+            personid: 111947098, name: "张晔航", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 98.0, work_2: 100.0, work_3: 100.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 62.1
+        },
+        {
+            personid: 111947138, name: "赵晨曦", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 100.0, work_2: 100.0, work_3: 100.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 69.6
+        },
+        {
+            personid: 111947270, name: "贺诗武", courseid: 222820410, exam_1: 80.0, exam_2: 90.0, exam_3: 100.0, work_1: 0.0, work_2: 90.0, work_3: 96.7, job_1: "No", job_2: "No", job_3: "Yes", prescore: 60.3
+        },
+        {
+            personid: 111947271, name: "梁雄壮", courseid: 222820410, exam_1: 90.0, exam_2: 92.5, exam_3: 100.0, work_1: 38.3, work_2: 80.0, work_3: 92.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 66.3
+        },
+        {
+            personid: 111947289, name: "陈露", courseid: 222820410, exam_1: 90.0, exam_2: 90.0, exam_3: 92.0, work_1: 73.3, work_2: 90.0, work_3: 90.0, job_1: "Yes", job_2: "No", job_3: "Yes", prescore: 60.4
+        },
+        {
+            personid: 111947311, name: "张泽昊", courseid: 222820410, exam_1: 90.0, exam_2: 90.0, exam_3: 95.0, work_1: 0.0, work_2: 0.0, work_3: 0.0, job_1: "No", job_2: "No", job_3: "No", prescore: 66.8
+        },
+        {
+            personid: 111947503, name: "唐宁远", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 99.0, work_3: 99.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 65.3
+        },
+        {
+            personid: 111947565, name: "张晋扬", courseid: 222820410, exam_1: 80.0, exam_2: 100.0, exam_3: 100.0, work_1: 94.0, work_2: 96.7, work_3: 98.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 61.7
+        },
+        {
+            personid: 111947683, name: "郭以诚", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 91.0, work_2: 91.1, work_3: 98.3, job_1: "No", job_2: "Yes", job_3: "No", prescore: 71.5
+        },
+        {
+            personid: 111947740, name: "王子震", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 50.0, work_3: 95.0, job_1: "No", job_2: "Yes", job_3: "No", prescore: 60.3
+        },
+        {
+            personid: 111948433, name: "杨帅帅", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 90.0, work_2: 95.5, work_3: 96.7, job_1: "No", job_2: "No", job_3: "Yes", prescore: 69.8
+        },
+        {
+            personid: 111948577, name: "叶诗洋", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 95.5, work_2: 99.7, work_3: 100.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 70.3
+        },
+        {
+            personid: 111948676, name: "张一卓", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 93.3, work_2: 95.0, work_3: 98.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 66.8
+        },
+        {
+            personid: 111948679, name: "晋荣臻", courseid: 222820410, exam_1: 80.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 95.5, work_3: 96.0, job_1: "No", job_2: "No", job_3: "No", prescore: 68.1
+        },
+        {
+            personid: 111948682, name: "朱国强", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 95.0, work_2: 100.0, work_3: 100.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 62.5
+        },
+        {
+            personid: 111948685, name: "许倩", courseid: 222820410, exam_1: 90.0, exam_2: 92.0, exam_3: 100.0, work_1: 0.0, work_2: 33.3, work_3: 74.9, job_1: "No", job_2: "No", job_3: "No", prescore: 70.4
+        },
+        {
+            personid: 111948700, name: "王宇轩", courseid: 222820410, exam_1: 85.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 80.0, work_3: 90.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 60.0
+        },
+        {
+            personid: 111948892, name: "张家齐", courseid: 222820410, exam_1: 67.0, exam_2: 90.0, exam_3: 100.0, work_1: 0.0, work_2: 98.0, work_3: 100.0, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 61.4
+        },
+        {
+            personid: 111948893, name: "庄思萍", courseid: 222820410, exam_1: 86.0, exam_2: 95.0, exam_3: 100.0, work_1: 93.3, work_2: 100.0, work_3: 100.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 71.8
+        },
+        {
+            personid: 147372603, name: "石绣文", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 80.0, work_3: 95.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 62.6
+        },
+        {
+            personid: 147372802, name: "王卓然", courseid: 222820410, exam_1: 75.0, exam_2: 85.0, exam_3: 90.0, work_1: 0.0, work_2: 70.0, work_3: 83.3, job_1: "Yes", job_2: "No", job_3: "No", prescore: 64.4
+        },
+        {
+            personid: 147374085, name: "王非凡", courseid: 222820410, exam_1: 80.0, exam_2: 84.0, exam_3: 85.0, work_1: 0.0, work_2: 0.0, work_3: 0.0, job_1: "No", job_2: "No", job_3: "No", prescore: 69.4
+        },
+        {
+            personid: 147374459, name: "吴世瑶", courseid: 222820410, exam_1: 80.0, exam_2: 82.5, exam_3: 85.0, work_1: 0.0, work_2: 0.0, work_3: 60.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 70.9
+        },
+        {
+            personid: 147375944, name: "高立", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 82.0, work_3: 95.8, job_1: "Yes", job_2: "No", job_3: "Yes", prescore: 70.0
+        },
+        {
+            personid: 147377079, name: "马泽意", courseid: 222820410, exam_1: 80.0, exam_2: 90.0, exam_3: 90.0, work_1: 0.0, work_2: 70.0, work_3: 85.0, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 60.2
+        },
+        {
+            personid: 147378307, name: "王天麒", courseid: 222820410, exam_1: 80.0, exam_2: 82.0, exam_3: 90.0, work_1: 0.0, work_2: 0.0, work_3: 64.4, job_1: "No", job_2: "Yes", job_3: "Yes", prescore: 62.2
+        },
+        {
+            personid: 147378484, name: "张坤", courseid: 222820410, exam_1: 0.0, exam_2: 70.0, exam_3: 90.0, work_1: 0.0, work_2: 60.0, work_3: 91.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 69.9
+        },
+        {
+            personid: 147378696, name: "胡耀武", courseid: 222820410, exam_1: 80.0, exam_2: 80.0, exam_3: 90.0, work_1: 0.0, work_2: 80.0, work_3: 85.0, job_1: "No", job_2: "Yes", job_3: "No", prescore: 68.1
+        },
+        {
+            personid: 147380018, name: "夏满", courseid: 222820410, exam_1: 40.0, exam_2: 85.0, exam_3: 85.0, work_1: 0.0, work_2: 0.0, work_3: 86.7, job_1: "Yes", job_2: "No", job_3: "Yes", prescore: 67.6
+        },
+        {
+            personid: 147380291, name: "张一帆", courseid: 222820410, exam_1: 90.0, exam_2: 90.0, exam_3: 92.0, work_1: 0.0, work_2: 0.0, work_3: 88.0, job_1: "No", job_2: "Yes", job_3: "No", prescore: 60.1
+        },
+        {
+            personid: 147380549, name: "蒲中南", courseid: 222820410, exam_1: 80.0, exam_2: 90.0, exam_3: 90.0, work_1: 90.0, work_2: 96.7, work_3: 100.0, job_1: "No", job_2: "No", job_3: "No", prescore: 60.7
+        },
+        {
+            personid: 147382319, name: "谢芸", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 80.0, work_2: 93.0, work_3: 99.6, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 69.5
+        },
+        {
+            personid: 147385571, name: "朱鸿博", courseid: 222820410, exam_1: 45.0, exam_2: 80.0, exam_3: 80.0, work_1: 0.0, work_2: 0.0, work_3: 90.0, job_1: "Yes", job_2: "No", job_3: "Yes", prescore: 64.4
+        },
+        {
+            personid: 147385772, name: "陈宇航", courseid: 222820410, exam_1: 75.0, exam_2: 80.0, exam_3: 80.0, work_1: 0.0, work_2: 70.0, work_3: 93.3, job_1: "Yes", job_2: "No", job_3: "Yes", prescore: 71.0
+        },
+        {
+            personid: 147385820, name: "符恒", courseid: 222820410, exam_1: 70.0, exam_2: 70.0, exam_3: 90.0, work_1: 0.0, work_2: 0.0, work_3: 85.0, job_1: "No", job_2: "Yes", job_3: "Yes", prescore: 68.3
+        },
+        {
+            personid: 147386174, name: "张定闻", courseid: 222820410, exam_1: 75.0, exam_2: 84.0, exam_3: 85.0, work_1: 65.5, work_2: 70.0, work_3: 80.0, job_1: "Yes", job_2: "No", job_3: "Yes", prescore: 68.0
+        },
+        {
+            personid: 147386210, name: "苏驰", courseid: 222820410, exam_1: 90.0, exam_2: 90.0, exam_3: 100.0, work_1: 75.0, work_2: 80.0, work_3: 80.0, job_1: "No", job_2: "Yes", job_3: "Yes", prescore: 60.4
+        },
+        {
+            personid: 147386246, name: "欧阳妙枝", courseid: 222820410, exam_1: 85.0, exam_2: 90.0, exam_3: 100.0, work_1: 0.0, work_2: 95.0, work_3: 95.0, job_1: "No", job_2: "No", job_3: "No", prescore: 66.2
+        },
+        {
+            personid: 147388338, name: "金德峰", courseid: 222820410, exam_1: 90.0, exam_2: 90.0, exam_3: 93.0, work_1: 0.0, work_2: 0.0, work_3: 87.8, job_1: "No", job_2: "No", job_3: "Yes", prescore: 70.1
+        },
+        {
+            personid: 147388448, name: "王博闻", courseid: 222820410, exam_1: 92.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 90.0, work_3: 91.1, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 69.9
+        },
+        {
+            personid: 147390732, name: "彭培军", courseid: 222820410, exam_1: 85.0, exam_2: 92.5, exam_3: 100.0, work_1: 0.0, work_2: 82.0, work_3: 90.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 68.1
+        },
+        {
+            personid: 147391125, name: "莫盾", courseid: 222820410, exam_1: 80.0, exam_2: 84.0, exam_3: 85.0, work_1: 0.0, work_2: 60.0, work_3: 66.7, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 61.1
+        },
+        {
+            personid: 147392180, name: "张航", courseid: 222820410, exam_1: 80.0, exam_2: 90.0, exam_3: 100.0, work_1: 0.0, work_2: 60.0, work_3: 70.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 64.0
+        },
+        {
+            personid: 147392291, name: "刘帅", courseid: 222820410, exam_1: 65.0, exam_2: 92.0, exam_3: 100.0, work_1: 0.0, work_2: 70.0, work_3: 80.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 60.3
+        },
+        {
+            personid: 147392423, name: "王梓恒", courseid: 222820410, exam_1: 60.0, exam_2: 72.5, exam_3: 80.0, work_1: 0.0, work_2: 0.0, work_3: 10.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 64.1
+        },
+        {
+            personid: 147392692, name: "陈昊", courseid: 222820410, exam_1: 70.0, exam_2: 90.0, exam_3: 90.0, work_1: 0.0, work_2: 78.9, work_3: 80.0, job_1: "No", job_2: "Yes", job_3: "No", prescore: 64.8
+        },
+        {
+            personid: 147392717, name: "黄博艺", courseid: 222820410, exam_1: 90.0, exam_2: 100.0, exam_3: 100.0, work_1: 0.0, work_2: 0.0, work_3: 0.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 64.1
+        },
+        {
+            personid: 147392786, name: "孙玲华", courseid: 222820410, exam_1: 75.0, exam_2: 77.5, exam_3: 80.0, work_1: 0.0, work_2: 0.0, work_3: 70.0, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 67.3
+        },
+        {
+            personid: 147392855, name: "陈欣", courseid: 222820410, exam_1: 90.0, exam_2: 0.0, exam_3: 0.0, work_1: 0.0, work_2: 60.0, work_3: 62.2, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 60.4
+        },
+        {
+            personid: 147392900, name: "曲宇晨", courseid: 222820410, exam_1: 90.0, exam_2: 90.0, exam_3: 100.0, work_1: 80.0, work_2: 82.6, work_3: 90.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 61.3
+        },
+        {
+            personid: 147393446, name: "刘初浩", courseid: 222820410, exam_1: 56.0, exam_2: 70.0, exam_3: 85.0, work_1: 0.0, work_2: 0.0, work_3: 0.0, job_1: "Yes", job_2: "No", job_3: "Yes", prescore: 61.8
+        },
+        {
+            personid: 147393571, name: "徐梦雪", courseid: 222820410, exam_1: 100.0, exam_2: 100.0, exam_3: 100.0, work_1: 91.0, work_2: 91.1, work_3: 99.0, job_1: "No", job_2: "No", job_3: "No", prescore: 70.3
+        },
+        {
+            personid: 147393593, name: "倪秉元", courseid: 222820410, exam_1: 75.0, exam_2: 92.5, exam_3: 100.0, work_1: 0.0, work_2: 65.0, work_3: 80.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 70.2
+        },
+        {
+            personid: 147393661, name: "黄天", courseid: 222820410, exam_1: 80.0, exam_2: 85.0, exam_3: 86.0, work_1: 85.0, work_2: 96.7, work_3: 98.0, job_1: "Yes", job_2: "Yes", job_3: "Yes", prescore: 62.1
+        },
+        {
+            personid: 147393726, name: "苗茹", courseid: 222820410, exam_1: 85.0, exam_2: 90.0, exam_3: 92.5, work_1: 0.0, work_2: 0.0, work_3: 80.0, job_1: "Yes", job_2: "No", job_3: "Yes", prescore: 68.9
+        },
+        {
+            personid: 147393731, name: "李富伟", courseid: 222820410, exam_1: 77.0, exam_2: 90.0, exam_3: 90.0, work_1: 0.0, work_2: 26.7, work_3: 60.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 60.5
+        },
+        {
+            personid: 147393768, name: "黄英旗", courseid: 222820410, exam_1: 75.0, exam_2: 90.0, exam_3: 90.0, work_1: 0.0, work_2: 40.0, work_3: 70.0, job_1: "No", job_2: "Yes", job_3: "Yes", prescore: 70.4
+        },
+        {
+            personid: 153867160, name: "赵昱皓", courseid: 222820410, exam_1: 75.0, exam_2: 90.0, exam_3: 90.0, work_1: 0.0, work_2: 80.0, work_3: 86.3, job_1: "No", job_2: "Yes", job_3: "No", prescore: 62.1
+        },
+        {
+            personid: 197254415, name: "陈从心", courseid: 223945300, exam_1: 83.0, exam_2: 0.0, exam_3: 0.0, work_1: 85.0, work_2: 91.0, work_3: 96.0, job_1: "No", job_2: "Yes", job_3: "No", prescore: 67.1
+        },
+        {
+            personid: 197254663, name: "崔静易", courseid: 223945300, exam_1: 88.0, exam_2: 0.0, exam_3: 0.0, work_1: 85.0, work_2: 88.0, work_3: 96.0, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 65.8
+        },
+        {
+            personid: 197256921, name: "李雪枫", courseid: 223945300, exam_1: 88.0, exam_2: 0.0, exam_3: 0.0, work_1: 90.0, work_2: 95.0, work_3: 96.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 65.8
+        },
+        {
+            personid: 197257111, name: "林娜", courseid: 223945300, exam_1: 86.0, exam_2: 0.0, exam_3: 0.0, work_1: 90.0, work_2: 95.0, work_3: 96.0, job_1: "No", job_2: "Yes", job_3: "Yes", prescore: 67.1
+        },
+        {
+            personid: 197257886, name: "刘任静", courseid: 223945300, exam_1: 85.0, exam_2: 0.0, exam_3: 0.0, work_1: 90.0, work_2: 96.0, work_3: 97.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 65.7
+        },
+        {
+            personid: 197258081, name: "刘欣月", courseid: 223945300, exam_1: 83.0, exam_2: 0.0, exam_3: 0.0, work_1: 86.0, work_2: 90.0, work_3: 95.0, job_1: "No", job_2: "No", job_3: "Yes", prescore: 66.8
+        },
+        {
+            personid: 197258830, name: "沈澳奇", courseid: 223945300, exam_1: 85.0, exam_2: 0.0, exam_3: 0.0, work_1: 90.0, work_2: 92.0, work_3: 96.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 65.9
+        },
+        {
+            personid: 197259586, name: "田宇鹏", courseid: 223945300, exam_1: 87.0, exam_2: 0.0, exam_3: 0.0, work_1: 90.0, work_2: 93.0, work_3: 95.0, job_1: "Yes", job_2: "Yes", job_3: "No", prescore: 70.1
+        },
+        {
+            personid: 197259971, name: "王佳曦", courseid: 223945300, exam_1: 87.0, exam_2: 0.0, exam_3: 0.0, work_1: 85.0, work_2: 90.0, work_3: 94.0, job_1: "No", job_2: "No", job_3: "No", prescore: 65.8
+        },
+        {
+            personid: 197261324, name: "肖根", courseid: 223945300, exam_1: 83.0, exam_2: 0.0, exam_3: 0.0, work_1: 90.0, work_2: 92.0, work_3: 95.0, job_1: "No", job_2: "Yes", job_3: "No", prescore: 66.6
+        },
+        {
+            personid: 197261517, name: "徐婉婷", courseid: 223945300, exam_1: 87.0, exam_2: 0.0, exam_3: 0.0, work_1: 90.0, work_2: 95.0, work_3: 96.0, job_1: "No", job_2: "No", job_3: "No", prescore: 66.7
+        },
+        {
+            personid: 197263536, name: "左泽", courseid: 223945300, exam_1: 88.0, exam_2: 0.0, exam_3: 0.0, work_1: 85.0, work_2: 90.0, work_3: 96.0, job_1: "Yes", job_2: "No", job_3: "No", prescore: 66.8
+        },
+
+
+    ]
+    const button = document.querySelectorAll('#butt')
+    const na = document.querySelector('#na')
+    const nu = document.querySelector('#nu')
+    const cl = document.querySelector('#cl')
+    const exams = document.querySelectorAll('.exam ')
+    const works = document.querySelectorAll('.work ')
+    const jobs = document.querySelectorAll('.job ')
+    // const pre = document.querySelector('#pre_score')
+    let score = 80
+
+
+    function utter(id) {
+        exams[0].innerHTML = pre_score[id].exam_1
+        exams[1].innerHTML = pre_score[id].exam_2
+        exams[2].innerHTML = pre_score[id].exam_3
+        works[0].innerHTML = pre_score[id].work_1
+        works[1].innerHTML = pre_score[id].work_2
+        works[2].innerHTML = pre_score[id].work_3
+        jobs[0].innerHTML = pre_score[id].job_1
+        jobs[1].innerHTML = pre_score[id].job_2
+        jobs[2].innerHTML = pre_score[id].job_3
+        score = pre_score[id].prescore
+        chart1.series[0].update(
+            {
+                data: [score]
+            }
+        )
+        // console.log(score)
+        na.value = pre_score[id].name
+        nu.value = pre_score[id].personid
+        cl.value = pre_score[id].courseid
+
+    }
+
+    function search(value, mod) {
+        if (mod == 1) {
+            for (i = 0; i < pre_score.length; i++) {
+                if (pre_score[i].name == value) {
+                    // console.log(value)
+                    utter(i)
+                    break
+                }
+                if (i == pre_score.length - 1) {
+                    // console.log('no exist')
+                    alert('该学生信息错误，请重新输入')
+                }
+
+
+            }
+        }
+        else if (mod == 2) {
+            for (i = 0; i < pre_score.length; i++) {
+                if (pre_score[i].personid == value) {
+                    console.log(value)
+                    utter(i)
+                    break
+                }
+                if (i == pre_score.length - 1) {
+                    // console.log('no exist')
+                    alert('该学生信息错误，请重新输入')
+                }
+            }
+        }
+        // 课程查找比较特殊，需要多个参数
+        else {
+            let num = 0
+            list = []
+            for (i = 0; i < pre_score.length; i++) {
+                if (pre_score[i].courseid == value) {
+                    // console.log(value)
+                    num++
+                    list.push(i)
+                }
+            }
+            if (num > 1) {
+                alert('当前课程存在多个学生输出第一个学生')
+                utter(list[0])
+            }
+            else if (num == 1) {
+                utter(list[0])
+            }
+            else {
+                alert('输入错误')
+            }
+        }
+    }
+
+
+
+    // console.log(pre_score.length)
+    for (i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', function (e) {
+            // 按名字查找
+            if (e.target.dataset.id == 'name') {
+                search(na.value, 1)
+            }
+            //学号查找
+            else if (e.target.dataset.id == 'number') {
+                search(nu.value, 2)
+            }
+            else {
+                search(cl.value, 3)
+            }
+        })
+    }
+
+
+    // 公共配置
+    Highcharts.setOptions({
+        chart: {
+            type: 'solidgauge'
+        },
+        title: null,
+        credits: {
+            enabled: false
+        },
+
+        pane: {
+            center: ['50%', '85%'],
+            size: '140%',
+            startAngle: -90,
+            endAngle: 90,
+            background: {
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+                innerRadius: '60%',
+                outerRadius: '100%',
+                shape: 'arc'
+            }
+        },
+        tooltip: {
+            enabled: false
+        },
+        yAxis: {
+            stops: [
+                [0.1, '#DF5353'],// red
+                [0.6, '#DDDF0D'], // yellow
+                [0.8, '#55BF3B'], // green
+            ],
+            lineWidth: 0,
+            minorTickInterval: null,
+            tickPixelInterval: 400,
+            tickWidth: 0,
+            title: {
+                y: -70
+            },
+            labels: {
+                y: 16
+            }
+        },
+        plotOptions: {
+            solidgauge: {
+                dataLabels: {
+                    y: 5,
+                    borderWidth: 0,
+                    useHTML: true
+                }
+            }
+        }
+    });
+    // 速度仪表
+    var chart1 = Highcharts.chart('container-score', {
+        yAxis: {
+            min: 0,
+            max: 100,
+            title: {
+                text: '预计成绩',
+                style: {
+                    fontSize: '20px'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: '预计分数',
+            data: [score],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+                    '<span style="font-size:12px;color:silver">分</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ' 分'
+            }
+        }]
+    });
+
+
+
+</script>
+
+{% endblock content %}
+
+{% block javascripts %}{% endblock javascripts %}

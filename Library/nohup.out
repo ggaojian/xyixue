@@ -1,0 +1,100 @@
+*** Starting uWSGI 2.0.21 (64bit) on [Sat Dec  3 19:28:21 2022] ***
+compiled with version: 9.4.0 on 01 December 2022 02:58:13
+os: Linux-5.4.0-135-generic #152-Ubuntu SMP Wed Nov 23 20:19:22 UTC 2022
+nodename: iZuf6i5vgnr6ftaeq0s7y0Z
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /www/envs/demo/Library
+detected binary path: /www/envs/demo/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7700
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.10 (default, Jun 22 2022, 20:18:18)  [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55fffade8c70
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72904 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55fffade8c70 pid: 22672 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 22672, cores: 1)
+[pid: 22672|app: 0|req: 1/1] 112.10.180.144 () {42 vars in 861 bytes} [Sat Dec  3 12:29:25 2022] GET / => generated 0 bytes in 470 msecs (HTTP/1.1 302) 5 headers in 155 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 2/2] 112.10.180.144 () {42 vars in 896 bytes} [Sat Dec  3 12:29:25 2022] GET /auth/login/?next=/ => generated 5646 bytes in 26 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 3/3] 112.10.180.144 () {52 vars in 1144 bytes} [Sat Dec  3 12:29:34 2022] POST /auth/login/?next=/ => generated 5656 bytes in 112 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 4/4] 112.10.180.144 () {52 vars in 1144 bytes} [Sat Dec  3 12:29:40 2022] POST /auth/login/?next=/ => generated 5656 bytes in 105 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 5/5] 112.10.180.144 () {52 vars in 1144 bytes} [Sat Dec  3 12:30:03 2022] POST /auth/login/?next=/ => generated 5656 bytes in 114 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 6/6] 112.10.180.144 () {52 vars in 1144 bytes} [Sat Dec  3 12:30:07 2022] POST /auth/login/?next=/ => generated 5656 bytes in 108 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 7/7] 112.10.180.144 () {52 vars in 1144 bytes} [Sat Dec  3 12:30:13 2022] POST /auth/login/?next=/ => generated 5656 bytes in 109 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 8/8] 112.10.180.144 () {44 vars in 949 bytes} [Sat Dec  3 12:30:15 2022] GET /auth/register/ => generated 6281 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 9/9] 112.10.180.144 () {52 vars in 1133 bytes} [Sat Dec  3 12:30:31 2022] POST /auth/register/ => generated 6390 bytes in 11 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 10/10] 112.10.180.144 () {52 vars in 1133 bytes} [Sat Dec  3 12:30:38 2022] POST /auth/register/ => generated 6495 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 11/11] 112.10.180.144 () {44 vars in 939 bytes} [Sat Dec  3 12:30:54 2022] GET /auth/login/ => generated 5646 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 12/12] 112.10.180.144 () {52 vars in 1124 bytes} [Sat Dec  3 12:31:11 2022] POST /auth/login/ => generated 5656 bytes in 105 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 13/13] 112.10.180.144 () {44 vars in 942 bytes} [Sat Dec  3 12:31:17 2022] GET /auth/register/ => generated 6281 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 14/14] 112.10.180.144 () {52 vars in 1133 bytes} [Sat Dec  3 12:31:39 2022] POST /auth/register/ => generated 6479 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 15/15] 112.10.180.144 () {52 vars in 1133 bytes} [Sat Dec  3 12:31:55 2022] POST /auth/register/ => generated 6416 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 16/16] 112.10.180.144 () {52 vars in 1133 bytes} [Sat Dec  3 12:32:07 2022] POST /auth/register/ => generated 6399 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 17/17] 112.10.180.144 () {52 vars in 1133 bytes} [Sat Dec  3 12:32:28 2022] POST /auth/register/ => generated 6348 bytes in 225 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 18/18] 112.10.180.144 () {44 vars in 939 bytes} [Sat Dec  3 12:32:33 2022] GET /auth/login/ => generated 5646 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 19/19] 112.10.180.144 () {52 vars in 1124 bytes} [Sat Dec  3 12:32:44 2022] POST /auth/login/ => generated 0 bytes in 127 msecs (HTTP/1.1 302) 7 headers in 450 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 20/20] 112.10.180.144 () {46 vars in 989 bytes} [Sat Dec  3 12:32:44 2022] GET / => generated 47159 bytes in 629 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 21/21] 112.10.180.144 () {44 vars in 947 bytes} [Sat Dec  3 12:32:47 2022] GET / => generated 47159 bytes in 1590 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 0)
+Sat Dec  3 12:32:54 2022 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /charts/ (ip 112.10.180.144) !!!
+Sat Dec  3 12:32:54 2022 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during GET /charts/ (112.10.180.144)
+OSError: write error
+[pid: 22672|app: 0|req: 22/22] 112.10.180.144 () {44 vars in 961 bytes} [Sat Dec  3 12:32:51 2022] GET /charts/ => generated 0 bytes in 2304 msecs (HTTP/1.1 200) 5 headers in 0 bytes (0 switches on core 0)
+[pid: 22672|app: 0|req: 23/23] 112.10.180.144 () {44 vars in 961 bytes} [Sat Dec  3 12:32:54 2022] GET /charts/ => generated 17939 bytes in 539 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 24/24] 112.10.180.144 () {44 vars in 972 bytes} [Sat Dec  3 12:32:59 2022] GET /book-list => generated 23322 bytes in 556 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 25/25] 112.10.180.144 () {44 vars in 956 bytes} [Sat Dec  3 12:33:01 2022] GET / => generated 47159 bytes in 1372 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 0)
+[pid: 22672|app: 0|req: 26/26] 112.10.180.144 () {44 vars in 947 bytes} [Sat Dec  3 12:33:06 2022] GET / => generated 47159 bytes in 556 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.21 (64bit) on [Sat Dec  3 19:34:05 2022] ***
+compiled with version: 9.4.0 on 01 December 2022 02:58:13
+os: Linux-5.4.0-135-generic #152-Ubuntu SMP Wed Nov 23 20:19:22 UTC 2022
+nodename: iZuf6i5vgnr6ftaeq0s7y0Z
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /www/envs/demo/Library
+detected binary path: /www/envs/demo/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7700
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.10 (default, Jun 22 2022, 20:18:18)  [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55ab6d328c70
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72904 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55ab6d328c70 pid: 22855 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 22855, cores: 1)
+Gracefully killing worker 1 (pid: 22855)...
